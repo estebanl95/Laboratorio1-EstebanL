@@ -25,10 +25,6 @@ jobs:
         echo "dataFirstName=TestFirstName" >> .creds.env
         echo "dataMiddleName=TestMiddleName" >> .creds.env
         echo "dataLastName=TestLastName" >> .creds.env
-        echo "dataEmployeeID=12345" >> .creds.env
-        echo "dataDriverLicenseNumber=D0123456789" >> .creds.env
-        echo "dataLicenseExpiryDate=2025-12-31" >> .creds.env
-        echo "dateOfBirth=1990-01-01" >> .creds.env
     - name: Run Playwright tests
       run: npx playwright test
     - uses: actions/upload-artifact@v4

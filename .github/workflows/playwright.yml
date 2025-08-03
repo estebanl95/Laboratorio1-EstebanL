@@ -28,14 +28,14 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
       
-    - name: Create test credentials file
-      run: |
-        echo "username=Admin" > .creds.env
-        echo "password=admin123" >> .creds.env
-        echo "incorrectPassword=wrongPassword123" >> .creds.env
-        echo "dataFirstName=TestFirstName" >> .creds.env
-        echo "dataMiddleName=TestMiddleName" >> .creds.env
-        echo "dataLastName=TestLastName" >> .creds.env
+    # - name: Create test credentials file
+    #   run: |
+    #     echo "username=Admin" > .creds.env
+    #     echo "password=admin123" >> .creds.env
+    #     echo "incorrectPassword=wrongPassword123" >> .creds.env
+    #     echo "dataFirstName=TestFirstName" >> .creds.env
+    #     echo "dataMiddleName=TestMiddleName" >> .creds.env
+    #     echo "dataLastName=TestLastName" >> .creds.env
         
     - name: Run Playwright tests
       run: npx playwright test --reporter=github

@@ -36,15 +36,6 @@ jobs:
     - name: Install Allure CLI
       run: npm install -g allure-commandline --save-dev
 
-    - name: Install Playwright browsers
-      run: npx playwright install
-
-    - name: Run Playwright tests
-      run: npx playwright test
-
-    - name: Generate Allure report
-      run: allure generate allure-assets -c --single-file  
-      
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
@@ -59,6 +50,10 @@ jobs:
         
     - name: Run Playwright tests
       run: npx playwright test --reporter=github
+
+    - name: Generate Allure report
+      if: always()
+      run: allure generate allure-results -o allure-report --clean
       
     - name: Upload Playwright Report
       uses: actions/upload-artifact@v4
@@ -74,6 +69,14 @@ jobs:
       with:
         name: allure-results
         path: allure-results/
+        retention-days: 30
+
+    - name: Upload Allure HTML Report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: allure-report
+        path: allure-report/
         retention-days: 30
 
     - name: Upload test results

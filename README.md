@@ -30,7 +30,7 @@
 
 # Laboratorio 3 - Esteban López Esquivel
 
-## Performance testing using K5 tool
+## Performance testing using K6 tool
 
 - ✅ Execute performance test to this endpoint (https://dog.ceo/api/breeds/image/random) using the following command: k6 run tests/K6/dog-api-load-test.js
 
